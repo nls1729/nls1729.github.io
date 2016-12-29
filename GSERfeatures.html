@@ -25,20 +25,28 @@ footer { font-family: Verdana, sans-serif; margin:5px; font-size:0.7em; backgrou
 <td align="center"><h5><center><a href="./GSERlatestupdate.html" target="Right">Latest Update</a></center></h5></td>
 </tr>
 </table>
-  		 <h4>Gnome Shell Reloader Extension Features</h4>
+		<h4>Gnome Shell Extension Reloader Features</h4>
        <ul>
         <li>A panel button is provided to present a menu of extensions installed.</li>
+        <li>The button can be located by preference to left, right, left center or right center of the panel.</li>
         <li>Selecting an extension from the menu will reload the extension.</li>
         <li>Functions under both Wayland and Xorg.</li>
         <li>Useful for extensions writers to replace restarting the Shell to reload an extension.</li>
+        <li>The scrolling menu is sorted by extension state and extension name.</li>
        </ul>
 		 <p>
 		 </p>              
        <p>
 			This extension is intended for use by Gnome Shell Extension writers. It is common practice to restart the Shell during testing to reload
 			an extension with changes made to the extension's code. Wayland does not allow restarting the Shell.  To reload an extension under Wayland
-			a logout and a login is required.  This extension reloads only the	selected extension with two mouse clicks saving time for the extension
+			a logout and a login is required.  This extension reloads only the selected extension with two mouse clicks saving time for the extension
 			writer.                   
+       </p>
+       <p>The extension replaces the need to type "Alt F2 r" to restart the shell during extension development.  This extension will attempt
+          to reload the extension when it is in the error state.  The most common shell restarts for extension writers are when an extension
+          is in the error state.  If all errors in the extension code are corrected the extension will reload successfully.
+          If the reload fails the user is notified and the error is logged. A Gnome Shell extension can have errors that are only exposed
+          if the extension is reloaded.
        </p>
 
 <footer>
