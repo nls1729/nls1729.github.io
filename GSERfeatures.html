@@ -50,6 +50,12 @@ footer { font-family: Verdana, sans-serif; margin:5px; font-size:0.7em; backgrou
           If the reload fails the user is notified and the error is logged. A Gnome Shell extension can have errors that are only exposed
           if the extension is reloaded.
        </p>
+       <h3>Limitations</h3>
+       <p>
+          Changes to the extension code which affect the graphical display will not be effective after a reload.  The Gnome Shell session must
+          be restarted by "Alt F2 r" for X sessions or re-login for Wayland sessions.  Code changes not related to the graphical display are
+          effective after a reload.
+       </p>
 <footer>
 		<br>
 		<center><a href="mailto:nls1729@gmail.com"><img src="images/mail-mark-unread-2.png" width="32" height="32" alt="">nls1729@gmail.com</a></center>
