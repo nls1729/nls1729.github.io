@@ -52,9 +52,11 @@ footer { font-family: Verdana, sans-serif; margin:5px; font-size:0.7em; backgrou
        </p>
        <h3>Limitations</h3>
        <p>
-          Changes to the extension code which affect the graphical display will not be effective after a reload.  The Gnome Shell session must
-          be restarted by "Alt F2 r" for X sessions or re-login for Wayland sessions.  Code changes not related to the graphical display are
-          effective after a reload.
+           This extension will reload an extension from the extension disk files only when the extension is in the error state; othewise,
+           the Gnome Shell session must be restarted with "Alt F2 r" for Xorg or re-login for Wayland.  
+           When not in the error state the extension is reloaded using modules imported when the extension was first initialized.<br><br>
+           See <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782186" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782186</a><br>
+           See <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782187" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782187</a><br>
        </p>
 <footer>
 		<br>
