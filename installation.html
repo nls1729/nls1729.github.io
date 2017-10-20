@@ -19,41 +19,68 @@
 
 </head>
   <body>
-        <h2><a href="https://extensions.gnome.org">Installation from the Gnome Shell Extension Website</a></h2>
+        <h3><a href="https://extensions.gnome.org" target="_blank">Installation from the Gnome Shell Extension Website</a></h2>
         <p>
         Installation is simple, just slide the switch to <strong>ON</strong>.<br>
         <img src="./images/ego_off.png" alt="EGO OFF"  border="2"><br>
         You will be prompted to Cancel or Install.  Select <strong>Install.</strong>.<br>
-        </p>
         <img src="./images/ego_on.png" alt="EGO ON"  border="2"><br>
         After installation the website can be used to enable, disable, set extension's preferences, <br>
-        or remove the extension.
-        <p>
-        </p>
-        <img src="./images/ego_installed.png" alt="EGO INSTALLED"  border="2"><br>
+        or remove the extension.<br>
+        <img src="./images/ego_installed.png" alt="EGO INSTALLED"  border="2">
         <p>
         </p>
         <h3>Alternative Installation from the Gnome Shell Extension Website</h3>
         <p>
-        Gnome Shell Extensions can be installed from an <em>extension zip file</em> with the <em>gnome-tweak-tool</em>.&nbsp&nbsp
+        Download <em>extension zip file</em> from the <a href="./ego_zips_index.html" >extension website zip files.</a><br><br>
+        <b>Gnome Shell Extensions can be installed from an <em>extension zip file</em> with the <br><em>gnome-tweak-tool</em> for versions of the Gnome Shell prior to 3.26.</b>
         </p>
         <p>
         <ul>
         <li>
-        Download <em>extension zip file</em> from the <a href="./ego_zips_index.html" >extension website zip files.</a><br>&nbsp
-        </li>
-        <li>
         Install the zip file with the Tweak Tool.<br>&nbsp
         <img src="./images/tweak_tool.jpg" alt="TWEAK TOOL" border="2"><br>
-        Click (None) then select and open the zip file.<br>&nbsp
+        Click (None) then select and open the zip file.<br>
         </li>
+        </ul> 
+        </p>
+        <p>
+        <b>For installation in Gnome Shell version 3.26 and later, the zip file can be installed <br><em>manually from a command line prompt ($)</em>.
+        An example for zip file <br>activities-config@nls1729.v58.shell-extension.zip follows.</b><br>
+        <p>
+        <ul>
+        <li>
+        Determine the UUID of the extension from the extension's zip file name.<br>
+        <b>activities-config@nls1729</b>
+        </li>
+        <li>
+        Set variables.<br>
+        <b>$ ZIPFILE=~/Downloads/activities-config@nls1729.v58.shell-extension.zip</b><br>
+        <b>$ EXTDIR=~/.local/share/gnome-shell/extensions/activities-config@nls1729</b><br>
+        </li>
+        <li>
+        Remove existing extension if it exists.<br>
+        <b>$ rm -rf "${EXTDIR}"</b>
+        </li>
+        <li>
+        Create extension directory.<br>
+        <b>$ mkdir "${EXTDIR}"</b>
+        </li>
+        <li>Unzip zip file into extension directory.<br>
+        <b>$ unzip "${ZIPFILE}" -d "${EXTDIR}"</b>
+        </li>
+        </ul> 
+        </p>
+        <p>
+        <b>To complete the installation.</b><br>
+        <ul>
         <li>
         Log out and then log in to start a new Gnome Shell session.
         </li>
         <li>
         Use the Tweak Tool or the website to enable/disable and set preferences.<br>&nbsp
         </li>
-        </ul> 
+        </ul>
         </p>
   </body>
 </html>
