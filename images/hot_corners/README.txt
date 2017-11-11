@@ -365,8 +365,8 @@ https://nls1729.github.io
            upstream shell.
 
            The following is specific to Ubuntu but can apply to any linux
-           linux distribution which has been modified by the patch. The
-           patch is not applied to the current upstream Gnome Shell.
+           distribution which has been modified by the patch. The patch is
+           not applied to the current upstream Gnome Shell.
 
            Ubuntu 17.10 introduced the Gnome Shell as the desktop for Ubuntu.
            On initial install only the Ubuntu Session is available. The shell
@@ -412,7 +412,7 @@ https://nls1729.github.io
            If the user sets the Activities Overview Hot Corner from OFF
            to ON during a Ubuntu Session the user is alerted by a message.
            If the user does not want to use the Activities Configurator,
-           or should be disabled or removed.  If extension remains enabled,
+           it should be disabled or removed.  If extension remains enabled,
            the extension will repeat the process described above of setting
            the Activities Overview Hot Corner to OFF at the start of the
            next Ubuntu Session.
