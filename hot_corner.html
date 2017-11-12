@@ -10,12 +10,13 @@
 
 </head>
 <body>
-<p><b>Updated November 11, 2017:</b>
+<p><b>Updated November 12, 2017:</b>
     Ubuntu 17.10 introduced a modified version of Gnome  Shell to provide a 'familiar Unity like experience'.
 	 The Activities Configurator extension is not currently compatible with the Ubuntu default session.
 	 An updated Activities Configurator compatible with Ubuntu Session in 17.10 will be available soon.
+	 The extensions has been uploaded for review.
 </p>
-<h1>Testing in Progress</h1>
+<h1>Waiting completion of review.</h1>
 <img src="./images/hot_corners/images.jpg" alt="IMAGE" border="2" height="128" width="128">
 <h3>Activities Configurator in Ubuntu 17.10 default Ubuntu Session</h3>
 <p>
@@ -52,10 +53,14 @@ Is the hot corner <b>undefined</b>?
 <p>
 The Hot Corner is not undefined in a distro with or without the enable-hot-corners setting.
 No action is required.
-</p>
+</p><br><br>
 <h4>F = true V = false C = false U = true</h4>
 <p>
-The extension sets enable-hot-corners to true. The Hot Corner is created. The extension displays the following message:
+The extension sets enable-hot-corners to true. The Hot Corner is created.
+</p>
+<h4>F = true V = true C = true U = false</h4>
+<p>
+The extension displays the following message:
 </p>
 <img src="./images/hot_corners/HC001.jpg" alt="IMAGE" border="2" valigh="top"  halign="center">
 <p>
@@ -64,19 +69,23 @@ As noted in the message it can be enabled (or disabled) by the user with the Dis
 The extension also has a preference, Hot Corner Threshold, which can be used to set the sensitivity of the Hot Corner when it is not disabled.
 Some users find the Hot Corner is inadvertently activated.  Others find it difficult to activate. Some users are able to use the Hot Corner by setting the Hot Corner Threshold.
 The Hot Corner activation problem is hardware dependent and cannot be solved in all cases by setting the Hot Corner Threshold.  
-</p>
+</p><br><br>
 <h4>F = true V = false C = false U = true</h4>
 <p>
-The extension sets enable-hot-corners to true. The Hot Corner is NOT created. The extension displays the following message:
+The extension sets enable-hot-corners to true. The Hot Corner is NOT created.
+</p>
+<h4>F = true V = true C = true U = true</h4>
+<p>
+The extension displays the following message:
 </p>
 <img src="./images/hot_corners/HC002.jpg" alt="IMAGE" border="2" valigh="top"  halign="center">
-</p>
+</p><br><br>
 <h4>F = False U = true</h4>
 <p>
 The extension displays the following message:
 </p>
 <img src="./images/hot_corners/HC003.jpg" alt="IMAGE" border="2" valigh="top"  halign="center">
-<p>
+<p><br><br>
 <h3>If you previously installed the Activities Configurator in Ubuntu 17.10</h3>
 <img src="./images/hot_corners/HC000.jpg" alt="IMAGE" border="2" valigh="top"  halign="center"> 
 <p>
@@ -92,6 +101,11 @@ If you have previously set the Activities Overview Hot Corner to ON the message 
 Install Activities Configurator from the Gnome Shell Extension Website</a>
 </p>
 <img src="./images/hot_corners/HC001.jpg" alt="IMAGE" border="2" valigh="top"  halign="center">
+<p>
+Clicking the right (secondary) mouse button on the extension's icon or text will execute the gnome-shell-extension-prefs tool.  On the first run of the tool all the
+Activities Configurator preferences are set to their default value.  Note the default value for the Disable Hot Corner preference is OFF.
+</p>
+
 <p>
 If you find any problems please see <b>Bugs... etc.</b> at <a href="./index.html" target="_top">Github Projects</a>.<br><br>
 </p>
