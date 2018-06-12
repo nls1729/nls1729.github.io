@@ -36,8 +36,17 @@ The entry area is accessible from the keyboard by typing tabs until the area bel
 Gnome Keyboard Shortcuts
 </a> for determining keys and key combinations which are currently in use.  A key or key combination which is used by Gnome should not be assigned to this extension. 
 </p>
-<p>The <b>Busy</b> check box automatically determines the <b>Available</b><img src="./images/available-yes.png"> or <b>Busy</b> <img src="./images/available-no.png"> state at login.
-On Lock Screen the current extension state is not saved when the extension is disabled.  On login to Unlock Screen the extension is set to the Busy state preference.
+<p>
+The <b>Busy State Override At Session Start</b> preference consists
+of an "Enable" checkbox, "Busy" radiobutton and "Available" radiobutton.
+If "Enable" is unchecked, the default is the state of the extension panel button
+controls the busy state indicated by the icon in a persistent manner.  Whatever state the
+icon indicated when the session ended or was interrupted by a screen lock or
+user switch determines the state at the next session login or re-login
+after a screen lock or user switch.  If the "Enable" is checked the state
+indicated by the selected radiobutton will only set the state at the next
+new session startup login; otherwise, the persistent behavoir set
+by the extension panel button is in effect.
 </p>
 </body>
 </html>
