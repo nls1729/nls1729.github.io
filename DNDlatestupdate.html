@@ -19,14 +19,26 @@ Update or install the Do Not Disturb Button extension at the Gnome Shell Extensi
 Download the zip-file for the Do Not Disturb Button extension from the Gnome Shell Extension Website.
 </a>
 </h5>
-<h4>Latest Update Version 23 GS 3.24 3.26 3.28</h4>
-Corrected metadata.json to reflect GS 3.24 3.26 3.28.
+
+<h4>Latest Update Version 24 GS 3.26 3.28</h4>
 <p>
-<h4>Update Version 22 GS 3.20 3.22 3.24 3.26 3.28</h4>
-Added persistent busy-available state logic with selectable override at session start-up.  See README.txt 2018-04-19 entry for details.
-<p>
+Thanks to p-bo for adding Czech translation.<br><br>
+Added code to handle clutter.EventType.TOUCH_BEGIN to act the same as a mouse click of the extension's panel button.  This change is untested.  I do not have a device that generates touch events. <br>
+Updated code:<br>
+to use arrow notation => instead of Lang.bind for anonymous functions.<br>
+to use ES6 classes.<br>
+to use GJS ES6 class wrapper for GObject class in prefs.js.<br>
+to use Function.prototype.bind() instead of Lang.bind for named call backs.<br>
+These changes are provided to accommodate future requirements of the Gnome Shell.
 </p>
-<h4>Latest Update Version 21 GS 3.24 3.26 3.28</h4>
+
+<h4>Update Version 23 GS 3.24 3.26 3.28</h4>
+<p>Corrected metadata.json to reflect GS 3.24 3.26 3.28.
+</p>
+<h4>Update Version 22 GS 3.20 3.22 3.24 3.26 3.28</h4>
+<p>Added persistent busy-available state logic with selectable override at session start-up.  See README.txt 2018-04-19 entry for details.
+</p>
+<h4>Update Version 21 GS 3.24 3.26 3.28</h4>
 <p>Added GS version 3.28 to meta data.
 </p>
 <h4>Update Version 20 GS 3.16 3.18 3.20 3.22 3.24 3.26</h4>
