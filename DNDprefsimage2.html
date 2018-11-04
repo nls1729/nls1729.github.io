@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ACME CODE</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style>
+	html {height:100%;}
+		body {font-family: Verdana, sans-serif; font-size:1.03em; background-color:#E6E3E3; height:96%;}
+		iframe {border:rgba(0,0,0,0.0); height:100%;}
+	</style>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+<![endif]-->
+</head>
+<body>
+
+<div><center><img src="./images/DNDprefs2.png" alt="PREFS"></img></center></div>
+<p>
+The <b>Do Not Disturb Button extension</b> defaults to mouse control. A mouse click toggles between the two states of <b>Available</b>
+ or <b>Busy</b>.  The extension preferences provide
+a keyboard binding to also toggle the availability status.  When the state is set to busy notifications are not displayed with the exception of
+critical notifications.<br>
+ The default icon images <b>Available</b> <img src="./images/available-yes.png"> and <b>Busy</b> <img src="./images/available-no.png"> are user selectable using the Available and Busy buttons.  The image above reflects image icon changes.  
+</p>
+<p>
+Notifications are queued in the Calendar notification area. All notifications may not be shown in the banner display.  Up to three notifications can
+be queued for display in the banner. Notifications queued for banner display are presented one by one when the button state is toggled from busy to available.
+Any additional notifications can be found in the Calendar notification area. An optional count of active notifications is displayed to the right of the Do Not Disturb Button.
+</p>
+<p>The default for the <b>shortcut</b> is Disabled.  When editing the shortcut a Backspace will disable the shortcut.
+A click under Edit accesses the entry area for a new short cut key or key combination.
+The entry area is accessible from the keyboard by typing tabs until the area below Edit is selected and then typing Return.
+Before assigning a shortcut, it is recommended to refer to <a href=https://wiki.gnome.org/Design/OS/KeyboardShortcuts>
+Gnome Keyboard Shortcuts
+</a> for determining keys and key combinations which are currently in use.  A key or key combination which is used by Gnome should not be assigned to this extension. 
+</p>
+<p>
+The <b>Busy State Override At Session Start</b> preference consists
+of an "Enable" checkbox, "Busy" radiobutton and "Available" radiobutton.
+If "Enable" is unchecked, the default is the state of the extension panel button
+controls the busy state indicated by the icon in a persistent manner.  Whatever state the
+icon indicated when the session ended or was interrupted by a screen lock or
+user switch determines the state at the next session login or re-login
+after a screen lock or user switch.<br>
+If the "Enable" is checked the state indicated by the selected radiobutton will only be set at
+new session startup logins <img src="./images/gnome-session-reboot.png">; otherwise, the persistent behavoir set
+by the extension panel button is in effect <img src="./images/default-persistence.png">.
+</p>
+</body>
+</html>
