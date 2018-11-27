@@ -18,7 +18,17 @@ Install Activities Configurator from the Gnome Shell Extension Website
 Download the zip-file for the Activities Configurator extension from the Gnome Shell Extension Website.
 </a>
 
-<h4>Latest Update Version 67 GS 3.28 3.30</h4>
+<h4>Latest Update Version 68 GS 3.28 3.30</h4>
+<p>
+When logging in from a locked screen, the Window Maximized Effect opaque panel
+background preferences were ignored. The problem was fixed by moving enabling the
+Window Maximized Effect preferences to later in the delayed enable function.
+Also code was added to prevent the Show Overview If No Applications Are Running
+preference from being falsely activated when returning from a locked screen.<br>
+Thanks to Micha Preußer for reporting the Window Maximized Effect issue.
+</p>
+
+<h4>Update Version 67 GS 3.28 3.30</h4>
 <p>
 Completed changes for ES6.
 Changed code to use arrow notation => instead of Lang.bind for anonymous functions. Changed code to use ES6 classes. Updated prefs.js to use GJS ES6
