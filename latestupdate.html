@@ -17,8 +17,44 @@ Install Activities Configurator from the Gnome Shell Extension Website
 <a href="./activities_config_zip.html" target="Right">
 Download the zip-file for the Activities Configurator extension from the Gnome Shell Extension Website.
 </a>
+<h4>Update Version 73 3.32</h4>
+<p>
+Added disable-enable on monitor change to handle loss of diabled hot corner
+for laptop.  Changed Tile Maximized Effect to be more efficient.
+Changes for GS3.32 are not compatible with earlier versions. Changing
+metadata.json to reflect only version 3.32.  Added set and get methods to
+the ActivitiesIconButton GObject class to allow access to variables that
+are not visible to previous javascript.  Modified the previous javascript
+to use the get and set methods.  Added imports.misc.util to replace calls
+where the util code was previously accessible through main.js.  Increased
+delay for feature to move the ActivitiesIconButton from top left corner to
+top right corner.
+Removed un-needed "_( )" and added needed "_( )"for translations.  Now xgettext
+should find everything and gettext will not be executed when not needed.
+</p>
 
-<h4>Latest Update Version 68 GS 3.28 3.30</h4>
+<h4>Update Version 71 GS 3.28 3.30</h4>
+<p>
+Found bug requiring an additional line of code to handle the
+Tile Maximized Effect Off option correctly.
+Changed Tile Maximized Effect to remove panel transparency when a window is
+tiled on the primary monitor and a Window Maximized Effect preference is
+selected.
+</p>
+
+<h4>Update Version 69 GS 3.28 3.30</h4>
+<p>
+Added Tile Maximize Effect.  When tiling windows in native Gnome Shell two
+windows on the primary monitor will be adjacent to the panel.  If the panel
+has transparency applied the look is not good.  The Tile Maximize Effect
+applies the Window Maximize Effect of Opaque Background Color or Black Opaque
+Background to the panel if an option is selected.  The option to turn the
+Tile Maximized Effect Off in the preferences is provided in case of a conflict
+with an installed tiling extension. Thanks to Micha Preußer for reporting the
+tiling appearance issue.
+</p>
+
+<h4>Update Version 68 GS 3.28 3.30</h4>
 <p>
 When logging in from a locked screen, the Window Maximized Effect opaque panel
 background preferences were ignored. The problem was fixed by moving enabling the
