@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ACME CODE</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style>
+	html {height:100%;}
+		body {font-family: Verdana, sans-serif; font-size:1.03em; background-color:#FFFFE0; height:96%;}
+		iframe {border:rgba(0,0,0,0.0); height:100%;}
+	</style>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+<![endif]-->
+</head>
+<body>
+
+<div><center><img src="./images/DNDprefs332.jpg" alt="PREFS"></img></center></div>
+<p>
+The <b>Do Not Disturb Button extension</b> defaults to mouse control. A mouse click toggles between the two states of <b>Available</b>
+ or <b>Busy</b>.  The extension preferences provide
+a keyboard binding to also toggle the availability status.  When the state is set to busy notifications are not displayed with the exception of
+critical notifications.
+ The icon images <b>Available</b> <img src="./images/available-notifications-symbolic.svg"> and <b>Busy</b> <img src="./images/busy-notifications-symbolic.svg"> 
+ are user selectable using the Available and Busy buttons.  
+</p>
+<p>
+Notifications are queued in the Calendar notification area. All notifications may not be shown in the banner display.  Up to three notifications can
+be queued for display in the banner. Notifications queued for banner display are presented one by one when the button state is toggled from busy to available.
+Any additional notifications can be found in the Calendar notification area. An optional count of active notifications is displayed to the right of the Do Not Disturb Button.
+</p>
+<p>The default for the <b>shortcut</b> is Disabled.  When editing the shortcut a Backspace will disable the shortcut.
+A click under Edit accesses the entry area for a new short cut key or key combination.
+The entry area is accessible from the keyboard by typing tabs until the area below Edit is selected and then typing Return.
+Before assigning a shortcut, it is recommended to refer to <a href=https://wiki.gnome.org/Design/OS/KeyboardShortcuts>
+Gnome Keyboard Shortcuts
+</a> for determining keys and key combinations which are currently in use.  A key or key combination which is used by Gnome should not be assigned to this extension. 
+</p>
+<p>
+The <b>Busy State Override At Session Start</b> preference consists
+of an "Enable" checkbox, "Busy" radiobutton and "Available" radiobutton.
+If "Enable" is unchecked, the default is the state of the extension panel button
+controls the busy state indicated by the icon in a persistent manner.  Whatever state the
+icon indicated when the session ended or was interrupted by a screen lock or
+user switch determines the state at the next session login or re-login
+after a screen lock or user switch.  If the "Enable" is checked the state indicated by the selected radiobutton will only be set at
+new session startup logins <img src="./images/gnome-session-reboot.png">; otherwise, the persistent behavoir set
+by the extension panel button is in effect <img src="./images/default-persistence.png">.
+</p>
+<p>
+The <b>Busy State Timeout</b> feature provides user options to schedule one-time or recurring time-outs. 
+The Panel Button has been changed. It continues to toggle the
+extension state between Busy and Available when clicked with the
+primary mouse button.  Since the Preferences Tool will be involved
+with using the Busy State Timeout Feature, quick access to the
+tool is provided by a secondary mouse click of the Panel Button.<br>
+</p>
+<p>
+<b>Icons: </b>
+When a Busy State Timeout starts an icon is displayed, ⏳. 
+
+When the Busy State Timeout Feature is enabled by checking the
+Enable Checkbox the duration of the timeout is calculated and
+displayed along with an icon, ⌛.
+</p>
+<p>
+<b>Extension States: </b>
+
+When the Busy State of the extension is set and the the Busy State
+Timeout Feature is enabled the timeout will start. If during the
+duration of a timeout the extension's state is changed from Busy to
+Available the timeout will be canceled.
+</p>
+<p>
+<b>Preferences: </b>
+If a time-out is in progress when the Preferences Tool is activated
+the time-out is cancelled and the feature is disabled.
+The <b>Enable Check Box</b> enables or disables the Busy State Timeout
+Feature.
+The <b>Once</b> Radio Button is used to select a one time time-out. When the
+Enable Check Box is checked and the Once Radio Button is selected a
+time-out starts when the extension's busy state is set. When the one
+time time-out expires the Busy State Timeout Feature is disabled.
+A notification is sent, "Timeout Once Busy State Timeout expired.
+Timeout disabled". The Busy State Timeout Feature will not start
+a new one time time-out until the Enable Check Box preference is
+checked to re-enable the Busy State Timeout Feature.  If during the
+duration of a one time time-out the Gnome Session is ended at the next
+session start the Busy State Timeout Feature will be disabled.
+
+The <b>Always</b> Radio Button sets a recurring timeout state. When the
+Enable Check Box is checked and the Always Radio Button is selected
+a time-out starts whenever the extension busy state is set.
+
+The <b>Hours Spin Button</b> and the <b>Minutes Spin Button</b> are provided to
+set the duration of the time-out timer.
+
+When <b>changing preferences</b> the following behavior insures if a timeout
+is in progress it will be canceled. Changing the state of the Once
+Radio Button or Always Radio Button or changing the setting of the
+Hours Spin Button or Minutes Spin Button will disable the Busy State
+Timeout Feature.  After changes are made the Enable Check Box must be
+checked to enable the Busy State Timeout Feature.<br><br>
+
+A timeout will start at <b>Session Start</b> if 
+
+<b>Busy State Override At Session Start is NOT enabled</b> and the extension
+was in the Busy State and the Busy State Timeout was enabled and the
+<b>Always Radio Button</b> was active at last session end.
+
+A timeout will start at <b>Session Start</b> if <b>Busy State Override At Session Start</b> <b>IS enabled</b>  and the Busy Radio
+Button is active and Busy State Timeout was enabled and the Always Radio Button was active at last session end.
+A timeout will start <b>during the session</b> if the user sets the extension from <b>Available to Busy</b>  with the <b>Panel
+Button</b> and the <b>Busy State Timeout Feature</b> is enabled.
+
+</p>
+
+<p>
+The <b>Notification Sound</b> preference provides an option to mute all sounds in the Busy State and the option to un-mute sounds when the state changes from Busy to
+Available.<br><br><br><br>
+</p>
+</body>
+</html>
