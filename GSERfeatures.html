@@ -31,7 +31,7 @@ footer { font-family: Verdana, sans-serif; margin:5px; font-size:0.7em; backgrou
        <ul>
         <li>A panel button is provided to present a menu of extensions installed.</li>
         <li>The button can be located by preference to left, right, left center or right center of the panel.</li>
-        <li>Selecting an extension from the menu will reload the extension.</li>
+        <li>Selecting an extension in the ERROR state from the menu will reload the extension.</li>
         <li>Functions under both Wayland and Xorg.</li>
         <li>Useful for extensions writers to replace restarting the Shell to reload an extension.</li>
         <li>The scrolling menu is sorted by extension state and extension name.</li>
@@ -47,16 +47,23 @@ footer { font-family: Verdana, sans-serif; margin:5px; font-size:0.7em; backgrou
        <p>The extension replaces the need to type "Alt F2 r" to restart the shell during extension development.  This extension will attempt
           to reload the extension when it is in the error state.  The most common shell restarts for extension writers are when an extension
           is in the error state.  If all errors in the extension code are corrected the extension will reload successfully.
-          If the reload fails the user is notified and the error is logged. A Gnome Shell extension can have errors that are only exposed
-          if the extension is reloaded.
+          If the reload fails the user is notified and the error is logged.
+       </p>
+       <p>
+          As of version 10 for GS 3.34:<br>
+          When the list of extensions is displayed only extensions in the ERROR state will be high-lighted indicating they can be reloaded.
+          Extensions not in the ERROR state are only loaded from the extension code on disk when a new Gnome Shell session starts.
        </p>
        <h3>Limitations</h3>
-       <p>
+       <p> Prior to version 10:<br>
            This extension will reload an extension from the extension disk files only when the extension is in the error state; othewise,
            the Gnome Shell session must be restarted with "Alt F2 r" for Xorg or re-login for Wayland.  
            When not in the error state the extension is reloaded using modules imported when the extension was first initialized.<br><br>
            See <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782186" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782186</a><br>
-           See <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782187" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782187</a><br>
+           See <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782187" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782187</a><br><br>
+           As of version 10 for GS 3.34:<br>
+           When the list of extensions is displayed only extensions in the ERROR state will be high-lighted indicating they can be reloaded.
+           Extensions not in the ERROR state are only loaded from the extension code on disk when a new Gnome Shell session starts.
        </p>
 <footer>
 		<br>

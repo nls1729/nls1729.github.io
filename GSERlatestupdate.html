@@ -16,11 +16,24 @@ Update or install the Gnome Shell Extension Restarter extension at the Gnome She
 </h5>
 <h5>
 <a href="./extension_reloader_zip.html" target="Right">
-Download the zip-file for the Gnome Shell Extension Restarter extension from the Gnome Shell Extension Website.
+Download the zip-file for the Gnome Shell Extension Reloader extension from the Gnome Shell Extension Website.
 </a>
 </h5>
 
-<h4>Latest Version 8 GS 3.24 3.26 3.28 3.30</h4>
+<h4>Version 10 GS 3.34</h4>
+<p>
+Corrected deprecated actor.actor instances. Changed logic to eliminate reloads
+which are actually ineffective. The extension is only useful for extension writers.
+Only an extension in the ERROR state can be reloaded.  In fact the process
+is to unload the extension and then create a new extension object and then load
+the new object.  If the extension writer corrected the cause of the error the
+extension will be loaded and enabled. If it errors again, repeat search for the
+coding error(s) and try again.  When the list of extensions is displayed only
+an extension in the ERROR state is high-lighted and enabled to effect a reload.
+</p>
+
+
+<h4>Version 8 GS 3.24 3.26 3.28 3.30</h4>
 <p>
 Completed changes for ES6.
 Changed code to use arrow notation => instead of Lang.bind for anonymous functions. Changed code to use ES6 classes. Updated prefs.js to use GJS ES6
