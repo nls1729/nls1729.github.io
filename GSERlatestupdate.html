@@ -20,6 +20,17 @@ Download the zip-file for the Gnome Shell Extension Reloader extension from the 
 </a>
 </h5>
 
+<h4>Version 12 GS 3.36</h4>
+<p>
+Added additional visual indicatiors and restored the ability to reload extensions not in the error state.
+The extension's panel button indicates when the current session is Wayland.  When an extension is reloaded
+the current session must be restarted to load the changes into memory (unless the extension changes from 
+the ERROR state to the ENABLED state).  If the current session is an Xorg session the Alt F2 r sequence can
+be used to perform the restart.  If the extension is in the DISABLED state or not enabled in the INITIALIZED state
+it is set to enabled before the reload.
+</p>
+
+
 <h4>Version 11 GS 3.36</h4>
 <p>
 Updated for Gnome Shell version 3.36.
