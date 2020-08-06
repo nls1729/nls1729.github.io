@@ -18,6 +18,15 @@ Install Activities Configurator from the Gnome Shell Extension Website
 Download the zip-file for the Activities Configurator extension from the Gnome Shell Extension Website.
 </a>
 
+<h4>Update Version 87 GS 3.36</h4>
+<p>
+Re-implemented the ability to drag through the hot corner when the hot corner is disabled in a Wayland session. Reviewing the
+journal I found "gnome-shell-extension-prefs is deprecated" messages produced by the Activities Configurator.
+gnome-shell-extension-prefs is replaced with gnome-extensions-app if it is installed or ExtensionUtils.openPrefs() if not. Added
+additonal logic to handle hot corner changes due to monitor changes.  Thanks to Jeremias Ortega for a pull request correcting
+an error in a timeout removal.
+</p>
+
 <h4>Update Version 86 GS 3.36</h4>
 <p>
 When the screen is locked all enabled extensions are disabled. When the screen is unlocked the extensions are re-enabled.
