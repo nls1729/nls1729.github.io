@@ -28,43 +28,119 @@ footer { font-family: Verdana, sans-serif; margin:5px; font-size:0.7em; backgrou
 <td align="center"><h5><center><a href="./GSERlatestupdate.html" target="Right">Latest Update</a></center></h5></td>
 </tr>
 </table>
-		<h4>Gnome Shell Extension Reloader Features</h4>
+		<h4><center>Gnome Shell Extension Reloader Extension</center></h4>
        <ul>
-        <li>A panel button is provided to present a menu of installed extensions.</li>
+        <li>The Extension Reloader is compatible with Wayland <img src="./images/GSER_W.png"> and Xorg <img src="./images/GSER_notW.png"> .</li>
+        <li>The Extension Reloader is a debugging tool for Gnome Shell Extension writers.</li>
+        <li>A panel button is provided which presents a menu of installed extensions.</li>
         <li>The panel button can be located to left, right, left center or right center of the panel.</li>
-        <li>The extension functions under both Wayland and Xorg Gnome Shell sessions.</li>
-        <li>If the session is Wayland a small "w" will be displayed next to the panel button.</li> 
         <li>The scrolling menu is sorted by extension state numerically and extension name.</li>
-       </ul>       
-              
-       <p>The extension states are:<br><br>
-        0 Unknown, 1 Enabled, 2 Disabled, 3 Error, 4 Out of Date, 5 Downloading, 6 Initialized
-       </p>
+        <li>The extension states are:</li>
+        <li>0 Unknown, 1 Enabled, 2 Disabled, 3 Error, 4 Out of Date, 5 Downloading, 6 Initialized</li>
+        <li>The Extension Reloader will reload extensions in states 1, 2, 3 and 6.</li>
+        <li>The Extension Reloader uses the shell's Extension Manager to perform the reload.</li>
+        <li>Extensions in state 1, 2 and 6 ARE NOT read from disk when reloaded.<br> For explanation see:<br>
+        <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782186" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782186</a><br>
+        <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782187" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782187</a>.
+        </li>
+        <li>An extension in the Error state IS read from disk when it is reloaded.</li>
+        <li>A message is displayed after the Gnome Shell Extension Reloader executes a reload request.</li>
+       </ul>
+       <ul>
+       <li>The following are examples of the messages which can be displayed.<br><br></li>
+       <li><img src="./images/GSER_error.png"><br>
+            The reload of an extension in the Error state failed due to an error in the code of the extension being reloaded.
+            The extension writer can make changes to the code on disk and repeat reloads without a session restart
+            when the extension being debugged remains in the Error state.<br><br></li>
+       <li><img src="./images/GSER_reloaded.png"><br>
+            The code of an extension in the Error state was corrected and then reloaded successfully.<br><br></li>
+       <li><img src="./images/GSER_AltF2.png"> Xorg Session <img src="./images/GSER_logout_login.png"> Wayland Session <br><br>
+            The extension reloaded was NOT read from disk. Any changes to the code on disk were not tested.
+            Any code changes made to an extension NOT in the Error state must be loaded into memory
+            by a session restart for the reload to be useful.
+            It is important to remember to restart the session before reloading when debugging
+            an extension not in the Error state which has errors
+            affecting the proper operation of the extension.  For operational errors
+            (1) Make your code changes. (2) Restart the session. (3) Test to determine if the operational problem has been solved.
+            (4) Return to (1) if the operational problem has not been solved.
+       </ul>
        
-       <p>This extension will reload any installed extension except for the states of Unknown, Out of Date, and Downloading.</p>
 
-		 <p>
-		 If an extension is displayed in the Error state and if the error is corrected, this extension does a complete reload of
-		 the extension from disk into memory.  If the extension is in the Enabled, Disabled or Initilalized state,
-		 a session restart is required to complete the loading into memory. The Xorg session is recommended for developing 
-		 extensions since restart with the Alt F2 r sequence can be used.  With Wayland logout/login is required for the
-		 session restart. The bug reports below explain the reason a session restart is required.  	 
-		 </p>
-      
-          
-       <p>
-			This extension is intended mainly for Gnome Shell Extension writers.  If an extension is reloaded after code
-			changes and it returns in the enabled state the code has passed the checks of the code by the extension system.
-			The code is syntactically correct.  The session restart is needed only when operational testing is required.  When
-			updating an extension's code often it is possible to make a few changes, reload to verify the code is syntactically correct
-			repeat the change and verify process until there is the need to verify the operation of code. Simply stated every code change
-			does not require a session restart.
-       </p>
-       <p> 
-           For reference:<br><br>     
-           See <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782186" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782186</a><br>
-           See <a href="https://bugzilla.gnome.org/show_bug.cgi?id=782187" target="_blank">https://bugzilla.gnome.org/show_bug.cgi?id=782187</a><br><br>
-       </p>
+
+		<p>
+      Debugging extensions requires examination of the system log. Most Linux Distributions use systemd.
+      The systemd command journalctl is very useful for debugging extensions.  Using the Xorg Session when debugging
+      allows "Alt F2 r" to read the extension code from disk before reloading.  Wayland requires logout and login.
+      </p>
+
+		<h4>Debugging extension in Error [state 4]</h4>
+		<p>
+		Start journalctl with the -f option and direct the output to a file.<br><br>
+		$ sudo journalctl -f > /tmp/error.txt<br><br>
+		Reload the extension that failed.<br><br>
+		Stop journalctl with "Ctrl c"<br><br>
+		$ cat  /tmp/error.txt or examine the file with an editor.<br><br>
+		Near the end of the file you should find logging that identifies why the extension did not reload.<br><br>
+      ... Reloading Activities Configurator...<br>
+      ... JS ERROR: Extension activities-config@nls1729: ImportError: No JS module 'cairov' ...<br><br>
+		</p>
+
+		<h4>Debugging extensions which are not in Error [state 4]</h4>
+
+		<p>
+		   Coding errors can exist that do not prevent an extension from loading.  When the erroneous code is
+		   executed a JS error can occur.
+		   The following example is a an error which occurs when a preference is selected.
+		   In this example journalctl -f is started in a
+		   terminal session.  The preference is selected and the error is immediately
+		   identified in the journalctl terminal session.<br><br>
+
+         In this case setting a preference fails due to a simple coding error, "thia"
+         instead of "this".<br><br>
+
+         ... JS ERROR: ReferenceError: thia is not defined<br>
+         ... extensions/activities-config@nls1729/extension.js:455:9<br><br>
+
+         If you can create an instance of an extension error by manual action simply monitoring the
+         output of journalctl -f can reveal the code in error.
+		</p>
+
+		<p>
+         If the problem does not generate a JS error, it may generate a warning or other useful messages.<br>
+         Using journalctl -f or journalctl --no-pager > /tmp/error.txt with the log function can be
+         effective in isolating the problem.
+         <br><br>
+
+         log ('Debug: 001 START');<br><br>
+
+         suspected extension code...<br><br>
+
+         log ('Debug: 001 END');<br><br>
+
+         Using numbered log function pairs along the expected execution path can verify the code is
+         executing in the expected sequence.<br><br>
+
+         The system log receives messages from many sources in real time. Selectively displaying the messages with grep is useful.
+         Using "journalctl -f | grep Debug:" can uncover cases where a segment of code is not executed
+         or not executed completely.<br><br>
+
+         The contents of variables can be verified. <br>
+         log ('Debug: 020 this._var = ' + this._var);<br><br>
+
+         Example:<br><br><img src="./images/GSER_example.png"><br><br>
+
+			$ sudo journalctl -f | grep Debug<br><br>
+			...gnome-shell[2009]: Debug: 001 START<br>
+			...gnome-shell[2009]: Debug: 001 END<br>
+			...gnome-shell[2009]: Debug: 020  leftTiled = true rightTiled =  false<br>
+			...gnome-shell[2009]: Debug: 001 END<br>
+		   ...gnome-shell[2009]: Debug: 001 START<br>
+			...gnome-shell[2009]: Debug: 020  leftTiled = false rightTiled =  true<br>
+			...gnome-shell[2009]: Debug: 001 END<br><br>
+
+         The log function is very useful in debugging extensions.
+		</p>
+
 <footer>
 		<br>
 		<center><a href="mailto:nls1729@gmail.com"><img src="images/mail-mark-unread-2.png" width="32" height="32" alt="">nls1729@gmail.com</a></center>
